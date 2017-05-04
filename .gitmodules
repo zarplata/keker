@@ -1,0 +1,36 @@
+[submodule "vendor/github.com/docopt/docopt-go"]
+	path = vendor/github.com/docopt/docopt-go
+	url = https://github.com/docopt/docopt-go
+[submodule "vendor/github.com/gin-gonic/gin"]
+	path = vendor/github.com/gin-gonic/gin
+	url = https://github.com/gin-gonic/gin
+[submodule "vendor/github.com/golang/protobuf"]
+	path = vendor/github.com/golang/protobuf
+	url = https://github.com/golang/protobuf
+[submodule "vendor/github.com/gorilla/websocket"]
+	path = vendor/github.com/gorilla/websocket
+	url = https://github.com/gorilla/websocket
+[submodule "vendor/github.com/kovetskiy/lorg"]
+	path = vendor/github.com/kovetskiy/lorg
+	url = https://github.com/kovetskiy/lorg
+[submodule "vendor/github.com/manucorporat/sse"]
+	path = vendor/github.com/manucorporat/sse
+	url = https://github.com/manucorporat/sse
+[submodule "vendor/github.com/mattn/go-isatty"]
+	path = vendor/github.com/mattn/go-isatty
+	url = https://github.com/mattn/go-isatty
+[submodule "vendor/github.com/rs/xid"]
+	path = vendor/github.com/rs/xid
+	url = https://github.com/rs/xid
+[submodule "vendor/github.com/zazab/zhash"]
+	path = vendor/github.com/zazab/zhash
+	url = https://github.com/zazab/zhash
+[submodule "vendor/golang.org/x/net"]
+	path = vendor/golang.org/x/net
+	url = https://go.googlesource.com/net
+[submodule "vendor/gopkg.in/go-playground/validator.v8"]
+	path = vendor/gopkg.in/go-playground/validator.v8
+	url = https://gopkg.in/go-playground/validator.v8
+[submodule "vendor/gopkg.in/yaml.v2"]
+	path = vendor/gopkg.in/yaml.v2
+	url = https://gopkg.in/yaml.v2
