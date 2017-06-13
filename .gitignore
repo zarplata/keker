@@ -28,4 +28,5 @@ vendor/
 
 pkg/
 src/
+keker/
 *.tar.xz
