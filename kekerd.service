@@ -1,0 +1,13 @@
+[Unit]
+Description=Unit for keker, pub-sub message broker via websockets
+
+[Service]
+Type=simple
+LimitNOFILE=70000
+Restart=on-failure
+RestartSec=5
+ExecStart=/usr/bin/kekerd
+
+[Install]
+RequiredBy=multi-user.target
+

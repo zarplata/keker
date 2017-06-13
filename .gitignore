@@ -26,3 +26,6 @@ _testmain.go
 .out/ 
 vendor/
 
+pkg/
+src/
+*.tar.xz
