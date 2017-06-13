@@ -15,10 +15,10 @@ var (
 )
 
 func main() {
-	usage := `zarplata-keker
+	usage := `kekerd
 
 Usage:
-	zarplata-keker [options]
+	kekerd [options]
 
 Options:
     -l --listen <address>     Address which service will be listen 
@@ -29,8 +29,8 @@ Options:
     -t --timeout <seconds>    Timeout for read and write deadlines and for 
                               handling PING-PONG frames [default: 60]
     -c --cache <time>         Set TTL for message in cache [default: 5s]
-					                        
-	-v --verbose <level>      Logging level [default: ERROR].
+    
+    -v --verbose <level>      Logging level [default: ERROR].
 `
 
 	cmdArguments, err := docopt.Parse(usage, nil, true, version, false)
