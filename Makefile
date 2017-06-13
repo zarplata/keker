@@ -1,4 +1,4 @@
-.PHONY: all clean-all build cleand-deps deps
+.PHONY: all clean-all build cleand-deps deps ver
 
 DATE := $(shell git log -1 --format="%cd" --date=short | sed s/-//g)
 COUNT := $(shell git rev-list --count HEAD)
@@ -13,6 +13,9 @@ LDFLAGS := "-X main.version=${VERSION}"
 default: all 
 
 all: clean-all deps build
+
+ver:
+	@echo ${VERSION}
 
 clean-all: clean-deps
 	@echo Clean builded binaries
