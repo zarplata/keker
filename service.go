@@ -140,7 +140,7 @@ func (s *service) handleSubscription(context *gin.Context) {
 				authToken,
 			)
 
-			go keepAlive(connection, s.timeout, terminateKeepAlive)
+			go keepAlive(connection, s.timeout, terminateKeepAlive, s.sync)
 
 			s.sync <- true
 			sessionNumber, messages = s.currentSubscriptions.subscribeUser(

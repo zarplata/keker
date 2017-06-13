@@ -114,6 +114,7 @@ func keepAlive(
 	connection *websocket.Conn,
 	timeout time.Duration,
 	terminateKeepAlive chan bool,
+	sync chan bool,
 ) {
 	lastResponse := time.Now()
 	keepaliveStartTime := lastResponse
@@ -147,10 +148,12 @@ func keepAlive(
 				connection.RemoteAddr().String(),
 			)
 
+			sync <- true
 			err := connection.WriteMessage(
 				websocket.PingMessage,
 				[]byte("ping"),
 			)
+			<-sync
 			if err != nil {
 				logger.Errorf(
 					"unable to write PING frame to %s, reason %s",
