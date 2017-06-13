@@ -142,9 +142,11 @@ func (s *service) handleSubscription(context *gin.Context) {
 
 			go keepAlive(connection, s.timeout, terminateKeepAlive)
 
+			s.sync <- true
 			sessionNumber, messages = s.currentSubscriptions.subscribeUser(
 				authToken,
 			)
+			<-s.sync
 
 			logger.Infof(
 				"user %s was subscribed with ID %d",
