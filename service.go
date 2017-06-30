@@ -250,6 +250,11 @@ func (s *service) handlePublish(context *gin.Context) {
 		return
 	}
 
+	s.sync <- true
+	defer func() {
+		<-s.sync
+	}()
+
 	if _, exists := s.currentSubscriptions[authToken]; exists {
 
 		s.currentSubscriptions.publishMessage(authToken, message)
@@ -282,6 +287,12 @@ func (s *service) handleStats(context *gin.Context) {
 func (s *service) handleStatsSessions(context *gin.Context) {
 
 	sessionsCount := make(map[string]int)
+
+	s.sync <- true
+	defer func() {
+		<-s.sync
+	}()
+
 	for authToken, sessions := range s.currentSubscriptions {
 		sessionsCount[authToken] = len(sessions)
 
