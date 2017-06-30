@@ -28,6 +28,12 @@ build:
 	GOPATH="${PWD}/vendor" go build -v -o .out/${BINARYNAME} -ldflags ${LDFLAGS} *.go
 	@echo Done
 
+build-race:
+	@echo Build with race detection
+	ln -s ${PWD}/vendor/ ${PWD}/vendor/src
+	GOPATH="${PWD}/vendor" go build -race -v -o .out/${BINARYNAME} -ldflags ${LDFLAGS} *.go
+	@echo Done
+
 clean-deps:
 	@echo Clean dependencies
 	rm -rf vendor/*
