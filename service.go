@@ -59,6 +59,7 @@ func (s *service) run(
 	{
 		v1.GET("/subscribe", s.handleSubscription)
 		v1.PUT("/publish", s.handlePublish)
+		v1.PUT("/broadcast", s.handleBroadcast)
 		v1.GET("/stats", s.handleStats)
 		v1.GET("/stats/sessions", s.handleStatsSessions)
 		v1.GET("/health", s.handleHealth)
