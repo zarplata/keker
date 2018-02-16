@@ -53,6 +53,8 @@ func newService(
 
 func (s *service) run(
 	listen string,
+	sslCertificate string,
+	sslPrivateKey string,
 ) {
 
 	v1 := s.gin.Group("v1")
@@ -67,6 +69,17 @@ func (s *service) run(
 
 	//	ginpprof.Wrap(s.gin)
 	logger.Debugf("run service on %s", listen)
+
+	if sslCertificate != "" && sslPrivateKey != "" {
+		s.gin.RunTLS(
+			listen,
+			sslCertificate,
+			sslPrivateKey,
+		)
+
+		return
+	}
+
 	s.gin.Run(listen)
 }
 

@@ -23,6 +23,9 @@ Usage:
 Options:
     -l --listen <address>     Address which service will be listen 
                               for incoming requests [default: 0.0.0.0:3498]
+                                                      
+    -e --cert <path>          Path to SSL certificate.
+    -k --key <path>           Path to SSL private key.
                                                                         
     -r --read-buffer <size>   Max size of messages [default: 51200]
     -w --write-buffer <size>  Max size of messages [default: 102400]
@@ -37,6 +40,11 @@ Options:
 	if err != nil {
 		panic(err)
 	}
+
+	var (
+		sslCertificate string = ""
+		sslPrivateKey  string = ""
+	)
 
 	logger = setupLogger(cmdArguments["--verbose"].(string))
 
@@ -82,6 +90,14 @@ Options:
 		)
 	}
 
+	if cmdArguments["--cert"] != nil {
+		sslCertificate = cmdArguments["--cert"].(string)
+	}
+
+	if cmdArguments["--key"] != nil {
+		sslPrivateKey = cmdArguments["--key"].(string)
+	}
+
 	service := newService(
 		subscribers,
 		readBufferSize,
@@ -93,6 +109,8 @@ Options:
 
 	service.run(
 		cmdArguments["--listen"].(string),
+		sslCertificate,
+		sslPrivateKey,
 	)
 }
 
