@@ -1,7 +1,7 @@
 # Maintainer: Andrey Platonov <a.platonov@office.ngs.ru>
 pkgname=keker
 _binaryname=kekerd
-pkgver=20170411.30_c30c722
+pkgver=${VERSION:-manual}
 pkgrel=1
 pkgdesc="Simple pub-sub message broker via websockets"
 arch=("any")
@@ -10,15 +10,12 @@ groups=()
 makedepends=('go')
 provides=()
 replaces=()
+branch=${BRANCH:-master}
 install='install.sh'
 options=(emptydirs)
-source=("git+https://github.com/tears-of-noobs/keker.git#branch=master")
+source=("git+https://github.com/tears-of-noobs/keker.git#branch=$branch")
 md5sums=('SKIP')
 
-pkgver() {
-    cd "$pkgname"
-    make ver
-}
 
 build() {
 	cd "$srcdir/$pkgname"
